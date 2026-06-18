@@ -149,6 +149,16 @@ nav a:hover {
     margin-bottom: 12px;
 }
 
+.badge.new {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
 .product-card h3 {
     font-size: 20px;
     margin-bottom: 12px;

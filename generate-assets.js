@@ -52,6 +52,13 @@ const templates = [
     width: 1200,
     height: 675,
   },
+  {
+    file: 'pdf-compliance-whatsapp.html',
+    type: 'pdf',
+    out: 'products/Professional - Compliance WhatsApp + IA - v1.0.pdf',
+    width: 816,
+    height: 1056,
+  },
 ];
 
 (async () => {

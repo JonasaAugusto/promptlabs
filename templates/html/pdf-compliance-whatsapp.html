@@ -1,0 +1,2173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compliance WhatsApp + IA</title>
+<style>
+@media print {
+  body {
+    margin: 0;
+    padding: 20px;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { background: #fff; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #2C2C2A;
+  line-height: 1.7;
+  background: #fff;
+}
+
+/* ── PAGE WRAPPER ── */
+.page {
+  width: 100%;
+  padding: 0.75in 0.85in;
+  position: relative;
+  background: #fff;
+}
+
+/* ── COVER ── */
+.capa {
+  width: 8.5in;
+  height: 11in;
+  padding: 0;
+  background: linear-gradient(135deg, #0F6E56 0%, #042C53 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.capa::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.capa::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.capa-top { padding: 72px 60px 0; position: relative; z-index: 1; }
+.capa-mid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 60px;
+  gap: 24px;
+  position: relative; z-index: 1;
+}
+.capa-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 4px;
+}
+.capa-title {
+  font-size: 46px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  max-width: 640px;
+}
+.capa-divider {
+  width: 60px;
+  height: 3px;
+  background: #5DCAA5;
+  border-radius: 2px;
+}
+.capa-subtitle {
+  font-size: 18px;
+  color: rgba(255,255,255,0.85);
+  max-width: 560px;
+  line-height: 1.6;
+}
+.capa-author {
+  font-size: 15px;
+  color: #5DCAA5;
+  font-weight: 600;
+}
+.capa-bottom {
+  padding: 0 60px 40px;
+  position: relative; z-index: 1;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── TYPOGRAPHY ── */
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #1D9E75;
+  margin-bottom: 8px;
+}
+h1 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #2C2C2A;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0F6E56;
+  margin: 28px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #D3D1C7;
+}
+h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2C2C2A;
+  margin: 20px 0 8px;
+}
+p {
+  font-size: 13.5px;
+  color: #3a3a38;
+  margin: 8px 0;
+  text-align: justify;
+}
+ul, ol {
+  margin: 10px 0 10px 20px;
+  font-size: 13.5px;
+  color: #3a3a38;
+}
+li { margin: 5px 0; }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #D3D1C7;
+}
+.page-header-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F6E56;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.page-header-title {
+  font-size: 11px;
+  color: #999;
+}
+
+/* ── PAGE FOOTER ── */
+.page-footer {
+  position: absolute;
+  bottom: 40px;
+  left: 0.85in;
+  right: 0.85in;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid #D3D1C7;
+  font-size: 11px;
+  color: #bbb;
+}
+.page-num {
+  font-weight: 600;
+  color: #0F6E56;
+}
+
+/* ── CALLOUT / INFO BOX ── */
+.callout {
+  background: rgba(15,110,86,0.08);
+  border-left: 4px solid #0F6E56;
+  padding: 14px 16px;
+  margin: 18px 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 13.5px;
+}
+.callout-warn {
+  background: rgba(230,120,30,0.08);
+  border-left-color: #E6781E;
+}
+.callout-danger {
+  background: rgba(200,40,40,0.07);
+  border-left-color: #C82828;
+}
+.callout strong { display: block; margin-bottom: 4px; }
+
+/* ── CODE BLOCK ── */
+.code-block {
+  background: #2C2C2A;
+  color: #F1EFE8;
+  padding: 14px 16px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 11.5px;
+  margin: 14px 0;
+  white-space: pre-wrap;
+  line-height: 1.65;
+}
+
+/* ── TABLE ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 13px;
+}
+th {
+  background: rgba(15,110,86,0.1);
+  color: #0F6E56;
+  font-weight: 700;
+  padding: 10px 12px;
+  text-align: left;
+  border: 1px solid #D3D1C7;
+}
+td {
+  padding: 9px 12px;
+  border: 1px solid #D3D1C7;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: #fafaf8; }
+
+/* ── METRIC CARDS ── */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 16px 0;
+}
+.metric-card {
+  border: 1px solid #D3D1C7;
+  border-radius: 8px;
+  padding: 16px;
+}
+.metric-card-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 8px;
+}
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  padding: 4px 0;
+  border-bottom: 1px solid #f0ede8;
+}
+.metric-row:last-child { border-bottom: none; }
+.status-green { color: #0F6E56; font-weight: 700; }
+.status-yellow { color: #D4820A; font-weight: 700; }
+.status-red { color: #C82828; font-weight: 700; }
+
+/* ── CHECKLIST ── */
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0ede8;
+  font-size: 13.5px;
+}
+.check-box {
+  width: 18px; height: 18px;
+  border: 2px solid #0F6E56;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── INDEX PAGE ── */
+.toc-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0ede8;
+  font-size: 14px;
+}
+.toc-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0F6E56;
+  width: 28px;
+  flex-shrink: 0;
+}
+.toc-title { flex: 1; font-weight: 600; color: #2C2C2A; }
+.toc-dots { flex: 1; border-bottom: 1px dotted #D3D1C7; margin: 0 12px; }
+.toc-page { font-size: 12px; color: #888; font-weight: 600; }
+
+/* ── TAG / BADGE ── */
+.tag {
+  display: inline-block;
+  background: #0F6E56;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-right: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tag-outline {
+  background: transparent;
+  border: 1px solid #0F6E56;
+  color: #0F6E56;
+}
+
+/* ── INTRO HIGHLIGHT ── */
+.intro-box {
+  background: linear-gradient(135deg, #0F6E56 0%, #085041 100%);
+  color: #fff;
+  padding: 28px 32px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+.intro-box p { color: rgba(255,255,255,0.92); font-size: 14px; text-align: left; }
+.intro-box h3 { color: #5DCAA5; margin-bottom: 10px; font-size: 14px; }
+
+/* ── STEP ── */
+.step {
+  display: flex;
+  gap: 14px;
+  margin: 12px 0;
+  align-items: flex-start;
+}
+.step-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: #0F6E56;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.step-content { flex: 1; }
+.step-content strong { display: block; font-size: 13.5px; margin-bottom: 3px; }
+.step-content p { font-size: 13px; margin: 0; }
+
+/* ── VARIATION CARD ── */
+.var-card {
+  background: #f8f7f4;
+  border: 1px solid #D3D1C7;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 6px 0;
+  font-size: 13px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.var-num {
+  font-size: 10px;
+  font-weight: 700;
+  color: #1D9E75;
+  padding-top: 2px;
+  flex-shrink: 0;
+  width: 20px;
+}
+
+/* ── APPEAL BOX ── */
+.appeal-step {
+  background: #f8f7f4;
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin: 8px 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 13px;
+}
+.appeal-step-icon {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: #2C2C2A;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 1 — CAPA                           -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page capa">
+  <div class="capa-top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 256 256">
+      <rect x="0" y="0" width="256" height="256" rx="52" fill="rgba(255,255,255,0.15)"/>
+      <polyline points="80,84 124,128 80,172" fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="134" y="158" width="56" height="20" rx="10" fill="#ffffff"/>
+    </svg>
+  </div>
+  <div class="capa-mid">
+    <span class="capa-badge">Professional</span>
+    <div class="capa-title">Compliance WhatsApp + IA</div>
+    <div class="capa-divider"></div>
+    <div class="capa-subtitle">Estratégia de Compliance, Otimização de Opt-in e LGPD com IA</div>
+    <div class="capa-author">by Prompt Labs</div>
+  </div>
+  <div class="capa-bottom">v1.0 &nbsp;·&nbsp; Março 2026 &nbsp;·&nbsp; jonasaaugusto.github.io/promptlabs</div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 2 — ÍNDICE                         -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <div class="section-label">Conteúdo</div>
+  <h1>Índice</h1>
+
+  <div class="toc-item">
+    <span class="toc-num">—</span>
+    <span class="toc-title">Introdução: O Problema dos Bans em WhatsApp</span>
+    <span class="toc-dots"></span>
+    <span class="toc-page">03</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">01</span>
+    <span class="toc-title">Como WhatsApp Detecta Spam e Suspende Contas</span>
+    <span class="toc-dots"></span>
+    <span class="toc-page">05</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">02</span>
+    <span class="toc-title">Construindo um Fluxo de Opt-in Seguro</span>
+    <span class="toc-dots"></span>
+    <span class="toc-page">07</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">03</span>
+    <span class="toc-title">Gerando Templates LGPD-Compliant com IA</span>
+    <span class="toc-dots"></span>
+    <span class="toc-page">10</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">04</span>
+    <span class="toc-title">Monitorando Métricas de Saúde da Conta</span>
+    <span class="toc-dots"></span>
+    <span class="toc-page">14</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">05</span>
+    <span class="toc-title">Como Usar IA para Escalar Sem Parecer Bot</span>
+    <span class="toc-dots"></span>
+    <span class="toc-page">17</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">06</span>
+    <span class="toc-title">O Que Fazer Se Sua Conta For Banida</span>
+    <span class="toc-dots"></span>
+    <span class="toc-page">21</span>
+  </div>
+  <div class="toc-item">
+    <span class="toc-num">07</span>
+    <span class="toc-title">Checklist de Compliance + Conclusão</span>
+    <span class="toc-dots"></span>
+    <span class="toc-page">23</span>
+  </div>
+
+  <div class="callout" style="margin-top: 48px;">
+    <strong>Como usar este guia</strong>
+    Leia em ordem na primeira vez. Depois use como referência — volte às seções quando precisar revisar um ponto específico. O Checklist da Seção 7 é um ótimo ponto de partida rápido.
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">02</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 3 — INTRODUÇÃO (parte 1)           -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <div class="section-label">Introdução</div>
+  <h1>O Problema dos Bans em WhatsApp</h1>
+
+  <div class="intro-box">
+    <h3>Por que isso importa</h3>
+    <p>WhatsApp Business é uma das ferramentas mais poderosas para vendas, prospecção e atendimento no Brasil. Com mais de 147 milhões de usuários ativos no país, é onde seus clientes estão. Mas também é onde operações inteiras morrem da noite pro dia — sem aviso, sem apelação fácil, sem recuperação garantida.</p>
+  </div>
+
+  <p>Todos os meses, dezenas de operações perdem acesso às suas contas WhatsApp Business por violações de compliance — muitas vezes sem nem saber que estavam violando alguma regra. O impacto financeiro é imediato e severo:</p>
+
+  <table>
+    <tr>
+      <th>Tipo de Operação</th>
+      <th>Perda Estimada por Ban</th>
+    </tr>
+    <tr>
+      <td>Pequena (1.000 contatos)</td>
+      <td>R$ 5.000 – R$ 15.000/mês</td>
+    </tr>
+    <tr>
+      <td>Média (10.000 contatos)</td>
+      <td>R$ 20.000 – R$ 60.000/mês</td>
+    </tr>
+    <tr>
+      <td>Grande (100k+ contatos)</td>
+      <td>R$ 100.000+/mês</td>
+    </tr>
+  </table>
+
+  <p>Além da perda de receita direta, há o custo de reconstruir a base, o tempo perdido em appeals e a confiança dos clientes que tentam te contatar por WhatsApp e não conseguem.</p>
+
+  <div class="callout callout-warn">
+    <strong>O problema real</strong>
+    A maioria dos bans não acontece por má-fé. Acontece por desconhecimento: comprar listas prontas, não documentar opt-ins, enviar mensagens idênticas em massa, ultrapassar limites de velocidade. Este guia resolve isso.
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">03</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 4 — INTRODUÇÃO (parte 2)           -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>O que você vai aprender</h2>
+  <p>Este guia cobre as práticas que grandes agências de marketing digital e operações de vendas usam — e que raramente estão documentadas de forma clara e acessível.</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Entender como o WhatsApp detecta spam</strong>
+      <p>Os 3 sinais que o algoritmo monitora, os limiares exatos de alerta e ban, e como sua conta é avaliada continuamente.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Construir opt-ins que protegem você</strong>
+      <p>A diferença entre opt-in implícito e explícito, como documentar consentimento, e quais erros comuns colocam operações em risco.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>Gerar templates com IA dentro da LGPD</strong>
+      <p>Prompts prontos para Claude/ChatGPT gerarem mensagens que passam na aprovação do WhatsApp e cumprem a lei brasileira.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>Monitorar as métricas certas</strong>
+      <p>O dashboard de saúde da conta, os indicadores de alerta, e como usar IA para interpretar seus dados e tomar ação preventiva.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <strong>Escalar sem levantar suspeitas</strong>
+      <p>Como usar IA para criar variações de mensagens, rate limiting correto, e segmentação por lotes para envios de alto volume.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-content">
+      <strong>Recuperar uma conta banida</strong>
+      <p>O processo de appeal correto, as evidências que você precisa ter guardadas, e o que NUNCA fazer após um ban.</p>
+    </div>
+  </div>
+
+  <p style="margin-top: 20px; font-size: 14px; color: #0F6E56; font-weight: 600;">
+    Compliance = escalabilidade sustentável. Vamos começar.
+  </p>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">04</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 5 — SEÇÃO 1 (parte 1)             -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <div class="section-label">Seção 01</div>
+  <h1>Como WhatsApp Detecta Spam e Suspende Contas</h1>
+
+  <p>O algoritmo de detecção do WhatsApp é sofisticado e funciona de forma contínua — não só quando você envia uma mensagem, mas monitorando padrões ao longo do tempo. Entender como ele funciona é o primeiro passo para nunca ser pego por ele.</p>
+
+  <h2>Os 3 Sinais que Disparam Alerta</h2>
+
+  <h3>Sinal #1 — Taxa de Rejeição (Delivery Rate)</h3>
+  <p>Quando uma mensagem é bloqueada antes de ser entregue, ou quando o destinatário bloqueia sua conta imediatamente após recebê-la, isso conta como rejeição. O WhatsApp monitora essa taxa de forma acumulada.</p>
+
+  <table>
+    <tr>
+      <th>Taxa de Rejeição</th>
+      <th>Status</th>
+      <th>Ação do WhatsApp</th>
+    </tr>
+    <tr>
+      <td>Menor que 2%</td>
+      <td class="status-green">Saudável</td>
+      <td>Nenhuma</td>
+    </tr>
+    <tr>
+      <td>Entre 2% e 5%</td>
+      <td class="status-yellow">Atenção</td>
+      <td>Monitoramento aumentado</td>
+    </tr>
+    <tr>
+      <td>Entre 5% e 10%</td>
+      <td class="status-yellow">Alerta vermelho</td>
+      <td>Aviso + restrição parcial</td>
+    </tr>
+    <tr>
+      <td>Maior que 10%</td>
+      <td class="status-red">Crítico</td>
+      <td>Ban automático</td>
+    </tr>
+  </table>
+
+  <div class="callout callout-warn">
+    <strong>Exemplo prático</strong>
+    Você envia 1.000 mensagens. Se 50 são rejeitadas (5%), está no alerta vermelho. Se 150 são rejeitadas (15%), ban automático — sem aviso prévio.
+  </div>
+
+  <h3>Sinal #2 — User Reports (Denúncias)</h3>
+  <p>Quando um usuário toca em uma mensagem sua e seleciona "Denunciar", isso vai direto para o time de compliance do WhatsApp. Cada report pesa muito mais do que uma simples rejeição.</p>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="metric-card-label">Threshold de Reports</div>
+      <div class="metric-row"><span>0 reports/mês</span><span class="status-green">Seguro</span></div>
+      <div class="metric-row"><span>1-2 reports/mês</span><span class="status-yellow">Atenção</span></div>
+      <div class="metric-row"><span>3+ reports/30 dias</span><span class="status-red">Ban automático</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-card-label">Contexto importante</div>
+      <div class="metric-row" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+        <span style="font-size: 12.5px; color: #3a3a38;">Alta rejeição geralmente precede reports. Usuários bloqueiam primeiro; se continuam recebendo de outra conta, reportam.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">05</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 6 — SEÇÃO 1 (parte 2)             -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>Sinal #3 — Padrões de Envio Suspeitos</h2>
+  <p>O algoritmo analisa não só o que você envia, mas como você envia. Padrões que se desviam do comportamento humano normal são sinalizados automaticamente.</p>
+
+  <table>
+    <tr>
+      <th>Padrão</th>
+      <th>Por que é suspeito</th>
+      <th>Como evitar</th>
+    </tr>
+    <tr>
+      <td>10.000 msgs idênticas</td>
+      <td>Nenhum humano escreve a mesma coisa 10k vezes</td>
+      <td>Usar IA para variações (ver Seção 5)</td>
+    </tr>
+    <tr>
+      <td>1 msg por segundo</td>
+      <td>Velocidade de bot, não de humano</td>
+      <td>Rate limiting de 5–10s entre envios</td>
+    </tr>
+    <tr>
+      <td>Conta nova, alto volume</td>
+      <td>Contas legítimas crescem gradualmente</td>
+      <td>Warm-up de 2–4 semanas</td>
+    </tr>
+    <tr>
+      <td>Horários fora do comum</td>
+      <td>Envios às 3h da manhã = bot</td>
+      <td>Enviar apenas em horário comercial</td>
+    </tr>
+  </table>
+
+  <h2>Limites de Volume por Estágio da Conta</h2>
+
+  <div class="step">
+    <div class="step-num" style="background:#E6781E;">N</div>
+    <div class="step-content">
+      <strong>Conta Nova (0–30 dias)</strong>
+      <p>Máximo de 250 msgs/dia na primeira semana. Aumente 20–30% por semana. Nunca supere 1.000 msgs/dia no primeiro mês.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num" style="background:#D4820A;">M</div>
+    <div class="step-content">
+      <strong>Conta Estabelecida (1–6 meses)</strong>
+      <p>Volume máximo seguro: 2.000–3.000 msgs/dia, com taxa de rejeição monitorada abaixo de 2%.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">A</div>
+    <div class="step-content">
+      <strong>Conta Sênior (6+ meses, histórico limpo)</strong>
+      <p>Até 5.000 msgs/dia com variação de conteúdo. Contas verificadas (green tick) têm limites maiores.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Primeira ação prática</strong>
+    Antes de continuar lendo, verifique agora sua taxa de rejeição: WhatsApp Business Manager &gt; Analytics &gt; Message Delivery Rate. Se estiver acima de 5%, as próximas seções são urgentes para você.
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">06</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 7 — SEÇÃO 2 (parte 1)             -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <div class="section-label">Seção 02</div>
+  <h1>Construindo um Fluxo de Opt-in Seguro</h1>
+
+  <p>Opt-in não é apenas uma formalidade legal — é sua principal defesa contra bans. Uma lista com opt-in documentado tem taxa de rejeição naturalmente baixa porque as pessoas escolheram receber suas mensagens. É também sua prova caso o WhatsApp questione sua operação.</p>
+
+  <h2>Opt-in Explícito vs. Implícito</h2>
+
+  <table>
+    <tr>
+      <th></th>
+      <th>Opt-in Explícito</th>
+      <th>Opt-in Implícito</th>
+    </tr>
+    <tr>
+      <td><strong>O que é</strong></td>
+      <td>Usuário clica em botão/link e confirma que quer receber mensagens</td>
+      <td>Usuário comprou algo, preencheu formulário, ou interagiu antes</td>
+    </tr>
+    <tr>
+      <td><strong>WhatsApp aceita?</strong></td>
+      <td class="status-green">Sim — padrão recomendado</td>
+      <td class="status-yellow">Risco — depende do contexto</td>
+    </tr>
+    <tr>
+      <td><strong>LGPD aceita?</strong></td>
+      <td class="status-green">Sim — base legal clara</td>
+      <td class="status-yellow">Depende — precisa de análise</td>
+    </tr>
+    <tr>
+      <td><strong>Risco de ban</strong></td>
+      <td class="status-green">Baixo</td>
+      <td class="status-red">Alto</td>
+    </tr>
+  </table>
+
+  <div class="callout callout-danger">
+    <strong>Nunca faça isso</strong>
+    Comprar listas prontas de números WhatsApp é o caminho mais rápido para ban permanente. Mesmo que o vendedor garanta que os números "são ativos", não há opt-in, e a taxa de rejeição vai a 40–80% nos primeiros envios.
+  </div>
+
+  <h2>Como Implementar Opt-in Explícito (Passo a Passo)</h2>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Crie o ponto de captação</strong>
+      <p>Landing page, formulário, link QR Code ou botão no seu site com texto claro: "Quero receber mensagens da [Empresa] pelo WhatsApp".</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Exija confirmação explícita</strong>
+      <p>Após preencher o número, o usuário deve clicar em "Confirmar" ou "Sim, quero receber". Checkbox marcado pelo sistema não conta.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>Registre tudo automaticamente</strong>
+      <p>Data, hora, IP, texto exato do botão clicado, URL onde o opt-in aconteceu. Guarde em banco de dados — não só no CRM.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>Envie mensagem de boas-vindas imediata</strong>
+      <p>Confirme o opt-in com uma mensagem que inclui o link para sair. Isso demonstra boa-fé e reduz reports de quem "esqueceu" que se cadastrou.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">07</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 8 — SEÇÃO 2 (parte 2)             -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>Erros Comuns que Levam a Ban</h2>
+
+  <table>
+    <tr>
+      <th>Erro</th>
+      <th>Por que é problemático</th>
+      <th>Solução</th>
+    </tr>
+    <tr>
+      <td>Comprar lista de números</td>
+      <td>Zero opt-in, rejeição altíssima</td>
+      <td>Construir lista própria com captação ativa</td>
+    </tr>
+    <tr>
+      <td>Usar WhatsApp pessoal para negócios</td>
+      <td>Mistura contatos, sem controle de compliance</td>
+      <td>Separar conta Business API ou App Business</td>
+    </tr>
+    <tr>
+      <td>Assumir opt-in por compra anterior</td>
+      <td>Relação comercial ≠ consentimento WhatsApp</td>
+      <td>Pedir opt-in explícito mesmo para clientes</td>
+    </tr>
+    <tr>
+      <td>Não oferecer unsubscribe</td>
+      <td>Usuário reporta como única saída</td>
+      <td>Incluir "Responda SAIR" em toda mensagem</td>
+    </tr>
+    <tr>
+      <td>Não guardar prova do opt-in</td>
+      <td>Sem defesa em caso de contestação</td>
+      <td>Salvar screenshot + log de banco de dados</td>
+    </tr>
+  </table>
+
+  <h2>O que Documentar (Checklist de Evidências)</h2>
+  <p>Para cada número na sua lista, você deve ter:</p>
+
+  <div class="check-item"><div class="check-box"></div><span>Data e hora exata do opt-in</span></div>
+  <div class="check-item"><div class="check-box"></div><span>URL ou nome do formulário onde o opt-in ocorreu</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Texto exato do botão/checkbox clicado</span></div>
+  <div class="check-item"><div class="check-box"></div><span>IP do usuário no momento do cadastro</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Screenshot da página de opt-in (tirada mensalmente)</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Confirmação enviada para o número (log da mensagem)</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Política de Privacidade em vigor na data do opt-in</span></div>
+
+  <div class="callout" style="margin-top: 20px;">
+    <strong>Dica de implementação</strong>
+    Use um Google Sheet simples com colunas: Número, Data, Fonte, IP, Screenshot_URL. Atualize automaticamente via webhook do seu formulário. Isso é suficiente como evidência em 95% dos casos de contestação.
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">08</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 9 — SEÇÃO 2 (parte 3)             -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>Mensagem de Boas-Vindas — Template de Opt-in Confirmado</h2>
+  <p>Imediatamente após o opt-in, envie esta mensagem para confirmar e já deixar a opção de saída clara:</p>
+
+  <div class="code-block">Olá, {{nome}}!
+
+Confirmamos seu cadastro para receber atualizações da [EMPRESA]
+pelo WhatsApp.
+
+O que você vai receber:
+• [Benefício 1]
+• [Benefício 2]
+• [Benefício 3]
+
+A qualquer momento, você pode cancelar respondendo SAIR.
+Política de Privacidade: [link]
+
+Obrigado por se cadastrar!</div>
+
+  <h2>Frequência e Gestão de Lista</h2>
+  <p>Opt-in não é eterno. Boas práticas de gestão de lista reduzem rejeição e mantêm sua reputação alta.</p>
+
+  <table>
+    <tr>
+      <th>Prática</th>
+      <th>Frequência recomendada</th>
+    </tr>
+    <tr>
+      <td>Limpar números inválidos/inativos</td>
+      <td>Mensal</td>
+    </tr>
+    <tr>
+      <td>Reconfirmar opt-in de contatos inativos</td>
+      <td>A cada 6 meses sem interação</td>
+    </tr>
+    <tr>
+      <td>Processar pedidos de SAIR</td>
+      <td>Imediato (máx 24h)</td>
+    </tr>
+    <tr>
+      <td>Auditar taxa de rejeição por segmento</td>
+      <td>Semanal</td>
+    </tr>
+    <tr>
+      <td>Atualizar Política de Privacidade</td>
+      <td>Anual ou quando houver mudanças na operação</td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>Regra dos 6 meses</strong>
+    Um contato que não interagiu nos últimos 6 meses tem probabilidade 3x maior de reportar sua mensagem como spam. Antes de reativar esse contato, envie uma mensagem de reconfirmação de opt-in — e se ele não confirmar, remova da lista.
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">09</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 10 — SEÇÃO 3 (parte 1)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <div class="section-label">Seção 03</div>
+  <h1>Gerando Templates LGPD-Compliant com IA</h1>
+
+  <p>Templates são mensagens pré-aprovadas pelo WhatsApp que você pode enviar em escala. Para serem aprovados e estarem dentro da LGPD, precisam seguir requisitos específicos — e IA é a ferramenta mais rápida para gerá-los dentro dessas restrições.</p>
+
+  <h2>O que é um Template WhatsApp</h2>
+  <p>Ao contrário de mensagens livres (que só podem ser enviadas dentro de uma janela de 24h após o usuário iniciar contato), templates são aprovados previamente pelo WhatsApp e podem ser enviados a qualquer momento para usuários que deram opt-in.</p>
+
+  <table>
+    <tr>
+      <th></th>
+      <th>Mensagem Livre</th>
+      <th>Template</th>
+    </tr>
+    <tr>
+      <td><strong>Quando usar</strong></td>
+      <td>Dentro de 24h do último contato do usuário</td>
+      <td>Qualquer momento, com opt-in</td>
+    </tr>
+    <tr>
+      <td><strong>Aprovação</strong></td>
+      <td>Não precisa</td>
+      <td>Aprovação prévia do WhatsApp (1–3 dias)</td>
+    </tr>
+    <tr>
+      <td><strong>Personalização</strong></td>
+      <td>Total</td>
+      <td>Apenas nas variáveis {{nome}}, {{valor}}, etc.</td>
+    </tr>
+    <tr>
+      <td><strong>Escala</strong></td>
+      <td>Limitada</td>
+      <td>Alta — pode disparar para milhares</td>
+    </tr>
+  </table>
+
+  <h2>Requisitos Obrigatórios LGPD + WhatsApp</h2>
+
+  <div class="check-item"><div class="check-box"></div><span><strong>Nome da empresa identificado</strong> — sempre dizer quem está enviando</span></div>
+  <div class="check-item"><div class="check-box"></div><span><strong>Opção de unsubscribe</strong> — "Responda SAIR", "Não quer mais? [link]"</span></div>
+  <div class="check-item"><div class="check-box"></div><span><strong>Sem links encurtados suspeitos</strong> — use domínio próprio ou bit.ly verificado</span></div>
+  <div class="check-item"><div class="check-box"></div><span><strong>Sem promessas falsas</strong> — "Você ganhou!" sem contexto = rejeição automática</span></div>
+  <div class="check-item"><div class="check-box"></div><span><strong>Política de Privacidade acessível</strong> — link ou menção de onde encontrar</span></div>
+  <div class="check-item"><div class="check-box"></div><span><strong>Pertinência ao opt-in</strong> — não envie sobre produto X se o opt-in foi para produto Y</span></div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">10</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 11 — SEÇÃO 3 (parte 2)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>Prompt Base para Gerar Templates com IA</h2>
+  <p>Copie este prompt e adapte com suas informações. Funciona com Claude, ChatGPT e outros LLMs.</p>
+
+  <div class="code-block">Você é especialista em compliance WhatsApp e LGPD.
+
+Crie um template de mensagem WhatsApp para o seguinte contexto:
+
+EMPRESA: [Nome da empresa]
+SEGMENTO: [ex: vendas de seguros, e-commerce, educação]
+OBJETIVO: [ex: promoção de produto, confirmação de dados, lembrete]
+PÚBLICO: [ex: leads que se cadastraram na landing page]
+
+REQUISITOS OBRIGATÓRIOS:
+- Máximo 160 caracteres no total
+- Mencionar o nome da empresa no início
+- Incluir opção de unsubscribe (ex: "Responda SAIR")
+- Tom: profissional mas amigável
+- Sem emojis excessivos
+- LGPD compliant
+
+VARIÁVEIS PERMITIDAS: {{nome}}, {{produto}}, {{valor}}, {{link}}
+
+ENTREGUE:
+1. Template pronto para submissão no WhatsApp
+2. Análise: por que vai ser aprovado
+3. Possível motivo de rejeição (se houver)
+4. Variação alternativa</div>
+
+  <h2>Templates Prontos — Segmento por Segmento</h2>
+
+  <h3>Template 1 — Lead Generation / Prospecção</h3>
+  <div class="code-block">Olá {{nome}}, aqui é {{empresa}}! Temos um material sobre
+{{tema}} que pode te ajudar. Acesse: {{link}}
+Não quer mais? Responda SAIR. Privacidade: {{link_pp}}</div>
+  <p style="font-size: 12px; color: #888; margin-top: 4px;">141 caracteres com variáveis preenchidas (média). Status: Aprovação alta.</p>
+
+  <h3>Template 2 — Confirmação de Dados / Onboarding</h3>
+  <div class="code-block">Olá {{nome}}, sou da {{empresa}}. Confirme seus dados em
+24h para ativar seu cadastro: {{link}}
+Dúvidas? Responda aqui. Sair: {{link_sair}}</div>
+  <p style="font-size: 12px; color: #888; margin-top: 4px;">148 caracteres. Status: Aprovação muito alta — contém ação clara e urgência legítima.</p>
+
+  <h3>Template 3 — Conteúdo Educativo</h3>
+  <div class="code-block">{{empresa}}: Dica de hoje — {{dica_resumida}}
+Leia o guia completo: {{link}}
+Política: {{link_pp}} | Sair: Responda SAIR</div>
+  <p style="font-size: 12px; color: #888; margin-top: 4px;">135 caracteres. Status: Aprovação alta — sem promessas, conteúdo claro.</p>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">11</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 12 — SEÇÃO 3 (parte 3)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h3>Template 4 — E-commerce / Venda de Produto</h3>
+  <div class="code-block">{{nome}}, {{empresa}} aqui! {{produto}} está com
+{{desconto}} de desconto só hoje: {{link}}
+Para parar de receber, responda SAIR.</div>
+  <p style="font-size: 12px; color: #888; margin-top: 4px;">Atenção: não use "só hoje" se não for verdade. WhatsApp rejeita falsas urgências.</p>
+
+  <h3>Template 5 — Reengajamento de Lead Inativo</h3>
+  <div class="code-block">Olá {{nome}}, faz um tempo que não nos falamos.
+{{empresa}} tem novidades sobre {{tema}} que podem
+te interessar: {{link}} — Sair: SAIR</div>
+  <p style="font-size: 12px; color: #888; margin-top: 4px;">Ideal para leads com mais de 60 dias sem interação. Não use para listas com opt-in acima de 6 meses sem reconfirmação.</p>
+
+  <h2>Processo de Aprovação — O que Esperar</h2>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Submissão</strong>
+      <p>Submeta o template no WhatsApp Business Manager com a categoria correta (Marketing, Transacional, OTP).</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Análise automática (0–24h)</strong>
+      <p>Sistema verifica links, palavras proibidas, estrutura e cumprimento dos requisitos básicos.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>Revisão humana (se necessário)</strong>
+      <p>Templates de Marketing passam por revisão extra em 24–72h. Transacionais costumam ser aprovados automaticamente.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>Resultado</strong>
+      <p>Aprovado, Rejeitado ou Suspenso. Em caso de rejeição, o sistema informa o motivo — ajuste e resubmeta.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-warn">
+    <strong>Motivos mais comuns de rejeição</strong>
+    Links encurtados desconhecidos, promessas exageradas ("ganhe dinheiro fácil"), ausência de identificação da empresa, e templates de Marketing sem opção de unsubscribe são os 4 motivos mais frequentes de rejeição.
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">12</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 13 — SEÇÃO 3 (parte 4)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>Biblioteca de Templates — Organize para Reutilizar</h2>
+  <p>Uma boa biblioteca de templates reduz o tempo de criação de novos envios e mantém consistência de compliance. Use esta estrutura:</p>
+
+  <table>
+    <tr>
+      <th>Categoria</th>
+      <th>Template</th>
+      <th>Status</th>
+      <th>Última aprovação</th>
+    </tr>
+    <tr>
+      <td>Marketing</td>
+      <td>Promoção produto X</td>
+      <td class="status-green">Aprovado</td>
+      <td>Jan/2026</td>
+    </tr>
+    <tr>
+      <td>Marketing</td>
+      <td>Conteúdo educativo</td>
+      <td class="status-green">Aprovado</td>
+      <td>Fev/2026</td>
+    </tr>
+    <tr>
+      <td>Transacional</td>
+      <td>Confirmação de compra</td>
+      <td class="status-green">Aprovado</td>
+      <td>Jan/2026</td>
+    </tr>
+    <tr>
+      <td>Transacional</td>
+      <td>Lembrete de pagamento</td>
+      <td class="status-yellow">Em revisão</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Reengajamento</td>
+      <td>Lead inativo 60d</td>
+      <td class="status-green">Aprovado</td>
+      <td>Mar/2026</td>
+    </tr>
+  </table>
+
+  <h2>Palavras e Frases a Evitar</h2>
+  <p>O filtro de spam do WhatsApp penaliza certos padrões linguísticos. Evite:</p>
+
+  <ul>
+    <li><strong>Urgência falsa:</strong> "Última chance!", "Expira em 1 hora!" (sem ser verdade)</li>
+    <li><strong>Promessas financeiras:</strong> "Ganhe R$500/dia", "Renda extra garantida"</li>
+    <li><strong>Excesso de maiúsculas:</strong> "PROMOÇÃO IMPERDÍVEL HOJE"</li>
+    <li><strong>Links suspeitos:</strong> bit.ly, tinyurl sem verificação, domínios aleatórios</li>
+    <li><strong>Emojis excessivos:</strong> mais de 2 emojis por mensagem</li>
+    <li><strong>Palavras de gatilho:</strong> "grátis", "gratis", "100% gratuito" em excesso</li>
+  </ul>
+
+  <div class="callout">
+    <strong>Use IA para verificar antes de submeter</strong>
+    Prompt: "Analise este template WhatsApp e diga se há palavras ou estruturas que podem levar à rejeição: [seu template]. Sugira alternativas para cada ponto de risco."
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">13</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 14 — SEÇÃO 4 (parte 1)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <div class="section-label">Seção 04</div>
+  <h1>Monitorando Métricas de Saúde da Conta</h1>
+
+  <p>Um ban raramente é surpresa para quem sabe o que monitorar. As métricas de saúde da conta dão sinais de alerta dias ou semanas antes de uma ação do WhatsApp — tempo suficiente para corrigir o curso.</p>
+
+  <h2>Dashboard de Saúde — 4 Métricas Essenciais</h2>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="metric-card-label">Taxa de Entrega</div>
+      <div class="metric-row"><span>Maior que 97%</span><span class="status-green">Excelente</span></div>
+      <div class="metric-row"><span>95% – 97%</span><span class="status-green">Saudável</span></div>
+      <div class="metric-row"><span>90% – 95%</span><span class="status-yellow">Atenção</span></div>
+      <div class="metric-row"><span>Menos de 90%</span><span class="status-red">Crítico</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-card-label">Taxa de Rejeição</div>
+      <div class="metric-row"><span>Menos de 1%</span><span class="status-green">Excelente</span></div>
+      <div class="metric-row"><span>1% – 2%</span><span class="status-green">Aceitável</span></div>
+      <div class="metric-row"><span>2% – 5%</span><span class="status-yellow">Atenção</span></div>
+      <div class="metric-row"><span>Mais de 5%</span><span class="status-red">Alerta</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-card-label">User Reports</div>
+      <div class="metric-row"><span>0 reports/mês</span><span class="status-green">Ideal</span></div>
+      <div class="metric-row"><span>1 report/mês</span><span class="status-yellow">Monitorar</span></div>
+      <div class="metric-row"><span>2 reports/mês</span><span class="status-yellow">Atenção</span></div>
+      <div class="metric-row"><span>3+ reports/30d</span><span class="status-red">Ban iminente</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-card-label">Response Rate</div>
+      <div class="metric-row"><span>Mais de 15%</span><span class="status-green">Excelente</span></div>
+      <div class="metric-row"><span>10% – 15%</span><span class="status-green">Bom</span></div>
+      <div class="metric-row"><span>5% – 10%</span><span class="status-yellow">Normal</span></div>
+      <div class="metric-row"><span>Menos de 5%</span><span class="status-red">Preocupante</span></div>
+    </div>
+  </div>
+
+  <div class="callout callout-warn">
+    <strong>A métrica que mais importa</strong>
+    Taxa de rejeição é o indicador mais preditivo de ban. Response rate baixo é sinal de lista desengajada — e lista desengajada tem rejeição alta. Comece sempre pela rejeição.
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">14</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 15 — SEÇÃO 4 (parte 2)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>Onde Encontrar as Métricas</h2>
+
+  <table>
+    <tr>
+      <th>Métrica</th>
+      <th>Onde encontrar</th>
+      <th>Frequência de verificação</th>
+    </tr>
+    <tr>
+      <td>Taxa de entrega e rejeição</td>
+      <td>WhatsApp Business Manager &gt; Analytics &gt; Messages</td>
+      <td>Diária após envios grandes</td>
+    </tr>
+    <tr>
+      <td>User reports</td>
+      <td>WhatsApp Business Manager &gt; Phone Numbers &gt; Quality</td>
+      <td>Semanal</td>
+    </tr>
+    <tr>
+      <td>Quality Rating</td>
+      <td>WhatsApp Business Manager &gt; Overview (verde/amarelo/vermelho)</td>
+      <td>Diária</td>
+    </tr>
+    <tr>
+      <td>Messaging Limits</td>
+      <td>WhatsApp Business Manager &gt; Phone Numbers &gt; Limits</td>
+      <td>Mensal</td>
+    </tr>
+    <tr>
+      <td>Response Rate</td>
+      <td>Plataforma de disparo (ex: Twilio, Gupshup) ou Analytics custom</td>
+      <td>Por campanha</td>
+    </tr>
+  </table>
+
+  <h2>Usando IA para Interpretar Métricas</h2>
+  <p>Não sabe o que fazer com os números que você coletou? Use este prompt:</p>
+
+  <div class="code-block">Analise as métricas de saúde da minha conta WhatsApp Business
+e me diga o nível de risco e o que fazer:
+
+MÉTRICAS DA ÚLTIMA SEMANA:
+- Taxa de entrega: [X]%
+- Taxa de rejeição: [X]%
+- User reports: [X]
+- Response rate: [X]%
+- Volume enviado: [X] mensagens
+- Tipo de conta: [nova / estabelecida / verificada]
+- Segmento: [ex: vendas B2B, e-commerce, educação]
+
+RESPONDA:
+1. Nível de risco atual (baixo/médio/alto/crítico)
+2. O indicador mais preocupante e por quê
+3. 3 ações prioritárias para esta semana
+4. O que monitorar nos próximos 7 dias</div>
+
+  <div class="callout">
+    <strong>Automatize o monitoramento</strong>
+    Configure um alerta semanal: toda segunda-feira de manhã, você (ou um assistente) preenche este prompt com os números da semana anterior. Em 5 minutos, você tem um diagnóstico completo.
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">15</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 16 — SEÇÃO 4 (parte 3)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>O Quality Rating do WhatsApp</h2>
+  <p>O WhatsApp classifica automaticamente a saúde de cada número em 3 níveis visíveis no Business Manager:</p>
+
+  <table>
+    <tr>
+      <th>Rating</th>
+      <th>Significado</th>
+      <th>Capacidade de envio</th>
+      <th>Ação recomendada</th>
+    </tr>
+    <tr>
+      <td><span class="status-green">Verde (High)</span></td>
+      <td>Conta saudável, métricas dentro do esperado</td>
+      <td>100% dos limites do plano</td>
+      <td>Manter práticas atuais</td>
+    </tr>
+    <tr>
+      <td><span class="status-yellow">Amarelo (Medium)</span></td>
+      <td>Algum sinal de alerta detectado</td>
+      <td>Pode ser reduzida automaticamente</td>
+      <td>Revisar lista e templates imediatamente</td>
+    </tr>
+    <tr>
+      <td><span class="status-red">Vermelho (Low)</span></td>
+      <td>Múltiplos sinais negativos acumulados</td>
+      <td>Fortemente reduzida ou suspensa</td>
+      <td>Pausar envios, auditar, aguardar recuperação</td>
+    </tr>
+  </table>
+
+  <h2>Quanto Tempo Demora para Recuperar o Rating</h2>
+  <p>O Quality Rating é calculado com base nos últimos 7 dias de atividade. Isso significa:</p>
+
+  <ul>
+    <li>Se você parar os envios problemáticos HOJE, em 7 dias o rating começa a melhorar.</li>
+    <li>Se você continuar enviando com alta rejeição, o rating fica vermelho indefinidamente.</li>
+    <li>Contas com rating vermelho por mais de 30 dias têm alto risco de ban permanente.</li>
+  </ul>
+
+  <div class="callout callout-danger">
+    <strong>Se seu rating virar vermelho agora</strong>
+    Pause todos os envios não urgentes imediatamente. Mantenha apenas mensagens transacionais críticas (confirmações, OTPs). Faça uma auditoria da lista e remova contatos inativos. Reinicie gradualmente após 7–10 dias.
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">16</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 17 — SEÇÃO 5 (parte 1)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <div class="section-label">Seção 05</div>
+  <h1>Como Usar IA para Escalar Sem Parecer Bot</h1>
+
+  <p>Escala e compliance parecem contraditórios — mas não são. O problema não é enviar para muitas pessoas; é enviar da forma errada. IA resolve exatamente isso: gera variações, otimiza timing e mantém sua operação dentro dos limites de forma automatizada.</p>
+
+  <h2>O Problema da Mensagem Idêntica</h2>
+
+  <div class="callout callout-warn">
+    <strong>Por que mensagens idênticas são perigosas</strong>
+    Quando você envia a mesma mensagem exata para 5.000 pessoas, o algoritmo detecta padrão e eleva o risco. Mesmo que o conteúdo seja legítimo, o padrão é indistinguível de spam em massa. A solução é variação de conteúdo mantendo o significado.
+  </div>
+
+  <h2>Prompt para Gerar Variações com IA</h2>
+
+  <div class="code-block">Crie 5 variações da mensagem abaixo para WhatsApp.
+
+MENSAGEM ORIGINAL:
+"Olá {{nome}}, tenho um PDF sobre Compliance WhatsApp
+que pode te ajudar muito. Veja aqui: {{link}}"
+
+REQUISITOS:
+- Manter o MESMO significado e CTA (call to action)
+- Parecer escrita por um humano diferente em cada variação
+- Sem repetir palavras-chave na mesma posição
+- Mesmo tamanho aproximado (máx ±20 caracteres)
+- Tom: profissional mas natural
+
+FORMATO DE ENTREGA:
+Variação 1: [texto]
+Variação 2: [texto]
+...
+
+Após as variações, explique as técnicas de variação usadas.</div>
+
+  <h2>Exemplo Real — De 1 para 5 Variações</h2>
+
+  <p>Mensagem original: <em>"Tenho um guia sobre Compliance WhatsApp que pode te ajudar"</em></p>
+
+  <div class="var-card"><span class="var-num">V1</span><span>"Preparei um material sobre como evitar bans no WhatsApp — pode ser útil pra você"</span></div>
+  <div class="var-card"><span class="var-num">V2</span><span>"Você usa WhatsApp no trabalho? Tenho um guia com práticas de compliance que vale a leitura"</span></div>
+  <div class="var-card"><span class="var-num">V3</span><span>"Compliance no WhatsApp é complicado — criei um guia prático pra simplificar isso"</span></div>
+  <div class="var-card"><span class="var-num">V4</span><span>"Aprenda a escalar sem risco de ban: montei um material completo sobre WhatsApp compliance"</span></div>
+  <div class="var-card"><span class="var-num">V5</span><span>"Se você usa WA Business, esse guia de compliance pode evitar muita dor de cabeça"</span></div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">17</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 18 — SEÇÃO 5 (parte 2)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>Rate Limiting — A Estratégia de Lotes</h2>
+  <p>Velocidade de envio é tão importante quanto o conteúdo. Esta é a estratégia de lotes que protege contas em qualquer volume:</p>
+
+  <table>
+    <tr>
+      <th>Volume total</th>
+      <th>Lotes</th>
+      <th>Intervalo entre lotes</th>
+      <th>Janela total</th>
+    </tr>
+    <tr>
+      <td>Até 500 msgs</td>
+      <td>5 × 100</td>
+      <td>10 minutos</td>
+      <td>~1 hora</td>
+    </tr>
+    <tr>
+      <td>500 – 2.000 msgs</td>
+      <td>10 × 200</td>
+      <td>15 minutos</td>
+      <td>~2,5 horas</td>
+    </tr>
+    <tr>
+      <td>2.000 – 5.000 msgs</td>
+      <td>20 × 250</td>
+      <td>20 minutos</td>
+      <td>~7 horas</td>
+    </tr>
+    <tr>
+      <td>Acima de 5.000 msgs</td>
+      <td>Múltiplos dias</td>
+      <td>1 dia entre sessões</td>
+      <td>2–5 dias</td>
+    </tr>
+  </table>
+
+  <p>Dentro de cada lote, adicione variação de conteúdo e um intervalo de 5–10 segundos entre cada mensagem individual.</p>
+
+  <h2>Segmentação para Reduzir Rejeição</h2>
+  <p>Uma das técnicas mais eficazes de compliance é nunca tratar a lista como um bloco único. Segmente por:</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Engajamento recente</strong>
+      <p>Separar quem interagiu nos últimos 30 dias. Esse grupo tem rejeição 4–6x menor. Envie para eles primeiro.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Fonte do opt-in</strong>
+      <p>Leads de landing page específica tendem a ter melhor engajamento. Analise qual fonte tem menor rejeição e priorize.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>Estágio no funil</strong>
+      <p>Lead quente (clicou no link) vs. lead frio (nunca respondeu) merecem abordagens e templates diferentes.</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">18</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 19 — SEÇÃO 5 (parte 3)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>Aquecimento de Conta Nova (Warm-up Plan)</h2>
+  <p>Uma conta nova que envia 1.000 mensagens no primeiro dia tem risco de ban de ~80%. Siga este plano de aquecimento:</p>
+
+  <table>
+    <tr>
+      <th>Semana</th>
+      <th>Volume diário máximo</th>
+      <th>Tipo de mensagem</th>
+      <th>Foco</th>
+    </tr>
+    <tr>
+      <td>Semana 1</td>
+      <td>50–100 msgs/dia</td>
+      <td>Só contatos quentes (conhecidos)</td>
+      <td>Construir reputação inicial</td>
+    </tr>
+    <tr>
+      <td>Semana 2</td>
+      <td>200–300 msgs/dia</td>
+      <td>Leads com opt-in recente</td>
+      <td>Manter rejeição &lt;1%</td>
+    </tr>
+    <tr>
+      <td>Semana 3</td>
+      <td>500–700 msgs/dia</td>
+      <td>Expandir para lista segmentada</td>
+      <td>Verificar quality rating semanal</td>
+    </tr>
+    <tr>
+      <td>Semana 4+</td>
+      <td>Até 1.500 msgs/dia</td>
+      <td>Escala completa com variação</td>
+      <td>Manter rejeição &lt;2%</td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>Regra de ouro do warm-up</strong>
+    Nunca aumente o volume mais de 30–40% por semana. Se a taxa de rejeição subir acima de 2% em qualquer semana, volte ao volume anterior e investigue antes de escalar novamente.
+  </div>
+
+  <h2>Automação com IA — Prompt para Geração em Lote</h2>
+  <p>Para campanhas de alto volume, use IA para gerar variações personalizadas em lote:</p>
+
+  <div class="code-block">Tenho uma lista de leads com os campos: nome, empresa, segmento.
+Gere uma variação personalizada da mensagem abaixo para cada lead:
+
+MENSAGEM BASE:
+"Olá [nome], vi que você trabalha com [segmento]. Tenho um guia
+sobre [tema relevante] que pode ajudar sua equipe. Veja: [link]"
+
+LEADS (formato CSV):
+nome,empresa,segmento
+João,TechCorp,vendas B2B
+Maria,EduStart,educação
+...
+
+INSTRUÇÃO: Para cada lead, adapte [tema relevante] para o
+segmento dele. Mantenha o mesmo CTA e unsubscribe.</div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">19</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 20 — SEÇÃO 5 (parte 4)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>Horários Ideais para Envio</h2>
+  <p>O timing afeta tanto o engajamento quanto o risk score. Mensagens enviadas fora do horário esperado pelo usuário têm taxa de rejeição mais alta.</p>
+
+  <table>
+    <tr>
+      <th>Horário</th>
+      <th>Engajamento esperado</th>
+      <th>Adequado para</th>
+    </tr>
+    <tr>
+      <td>08h – 09h30</td>
+      <td class="status-green">Alto</td>
+      <td>B2B, profissionais, lembretes matinais</td>
+    </tr>
+    <tr>
+      <td>12h – 13h30</td>
+      <td class="status-green">Alto</td>
+      <td>Todos os segmentos — horário de almoço</td>
+    </tr>
+    <tr>
+      <td>17h – 19h</td>
+      <td class="status-green">Muito alto</td>
+      <td>B2C, e-commerce, conteúdo educativo</td>
+    </tr>
+    <tr>
+      <td>19h – 21h</td>
+      <td class="status-yellow">Médio</td>
+      <td>B2C apenas — pode parecer invasivo para B2B</td>
+    </tr>
+    <tr>
+      <td>21h – 08h</td>
+      <td class="status-red">Baixo / Arriscado</td>
+      <td>Evitar — alto risco de report</td>
+    </tr>
+  </table>
+
+  <h2>Checklist de Escala Segura</h2>
+
+  <div class="check-item"><div class="check-box"></div><span>Lista segmentada por engajamento (quentes primeiro)</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Mínimo 5 variações de mensagem por campanha</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Intervalo de 5–10s entre mensagens individuais</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Envios em lotes com pausas entre eles</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Monitorar rejeição em tempo real durante o envio</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Parar automaticamente se rejeição superar 3%</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Horário de envio dentro da janela comercial</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Volume dentro do limite do estágio da conta</span></div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">20</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 21 — SEÇÃO 6 (parte 1)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <div class="section-label">Seção 06</div>
+  <h1>O Que Fazer Se Sua Conta For Banida</h1>
+
+  <p>Um ban não é necessariamente o fim. Com a abordagem correta, ~40% dos appeals resultam em restauração da conta. O que você faz nas primeiras 48 horas é determinante para o sucesso do processo.</p>
+
+  <h2>Primeiras 48 Horas — O que Fazer e Não Fazer</h2>
+
+  <table>
+    <tr>
+      <th>NUNCA FAÇA</th>
+      <th>Por quê</th>
+    </tr>
+    <tr>
+      <td>Tentar logar com VPN ou proxy</td>
+      <td>Sinaliza comportamento suspeito e piora o caso</td>
+    </tr>
+    <tr>
+      <td>Criar nova conta com o mesmo número</td>
+      <td>Não é possível — número fica bloqueado por período</td>
+    </tr>
+    <tr>
+      <td>Transferir a base para número diferente imediatamente</td>
+      <td>Pode levar ban ao novo número também</td>
+    </tr>
+    <tr>
+      <td>Ignorar o ban e "esperar passar"</td>
+      <td>Bans sem appeal podem se tornar permanentes</td>
+    </tr>
+    <tr>
+      <td>Comprar "desbloqueio" de terceiros</td>
+      <td>Scam — ninguém tem acesso para fazer isso</td>
+    </tr>
+  </table>
+
+  <h2>O Processo de Appeal Passo a Passo</h2>
+
+  <div class="appeal-step">
+    <div class="appeal-step-icon">1</div>
+    <div>
+      <strong style="display:block; margin-bottom:4px; font-size:13.5px;">Documente o ban</strong>
+      <span style="font-size:13px;">Tire screenshot da mensagem de suspensão, anote a data/hora e o motivo informado (se houver).</span>
+    </div>
+  </div>
+  <div class="appeal-step">
+    <div class="appeal-step-icon">2</div>
+    <div>
+      <strong style="display:block; margin-bottom:4px; font-size:13.5px;">Reúna suas evidências de compliance</strong>
+      <span style="font-size:13px;">Prints de opt-in, política de privacidade, templates aprovados, métricas de entrega. Tudo que provar operação legítima.</span>
+    </div>
+  </div>
+  <div class="appeal-step">
+    <div class="appeal-step-icon">3</div>
+    <div>
+      <strong style="display:block; margin-bottom:4px; font-size:13.5px;">Acesse o Business Support</strong>
+      <span style="font-size:13px;">Vá em business.facebook.com/help e localize o número banido. Clique em "Request Review" ou "Appeal".</span>
+    </div>
+  </div>
+  <div class="appeal-step">
+    <div class="appeal-step-icon">4</div>
+    <div>
+      <strong style="display:block; margin-bottom:4px; font-size:13.5px;">Escreva o appeal com IA</strong>
+      <span style="font-size:13px;">Use o prompt da próxima página para escrever uma justificativa clara, profissional e com evidências anexadas.</span>
+    </div>
+  </div>
+  <div class="appeal-step">
+    <div class="appeal-step-icon">5</div>
+    <div>
+      <strong style="display:block; margin-bottom:4px; font-size:13.5px;">Aguarde e acompanhe</strong>
+      <span style="font-size:13px;">Primeira resposta em 5–10 dias. Se negado, você tem direito a um segundo appeal. Se aprovado, reimplemente com práticas reforçadas.</span>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">21</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 22 — SEÇÃO 6 (parte 2)            -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <h2>Prompt para Escrever o Appeal com IA</h2>
+
+  <div class="code-block">Escreva um appeal profissional para o WhatsApp Business Support
+solicitando revisão de suspensão de conta.
+
+CONTEXTO:
+- Empresa: [Nome da empresa]
+- Segmento: [ex: vendas B2B, marketing digital]
+- Motivo informado pelo WhatsApp: [cole aqui]
+- Data da suspensão: [data]
+
+EVIDÊNCIAS DISPONÍVEIS:
+- [ex: prints de opt-in explícito de todos os leads]
+- [ex: política de privacidade em conformidade com LGPD]
+- [ex: templates aprovados pelo WhatsApp]
+- [ex: métricas de entrega acima de 95% antes da suspensão]
+
+TOM: Profissional, sem confronto, demonstrando boa-fé.
+IDIOMA: Inglês (WhatsApp Support é global)
+TAMANHO: 3 parágrafos — explicação, evidências, compromisso futuro.</div>
+
+  <h2>Evidências que Aumentam a Taxa de Sucesso</h2>
+
+  <table>
+    <tr>
+      <th>Evidência</th>
+      <th>Impacto no appeal</th>
+    </tr>
+    <tr>
+      <td>Screenshots de opt-in documentados</td>
+      <td class="status-green">Alto — prova direta de consentimento</td>
+    </tr>
+    <tr>
+      <td>Política de Privacidade com data</td>
+      <td class="status-green">Alto — demonstra compliance LGPD</td>
+    </tr>
+    <tr>
+      <td>Histórico de delivery rate acima de 95%</td>
+      <td class="status-green">Alto — conta com histórico limpo</td>
+    </tr>
+    <tr>
+      <td>Templates aprovados pelo WhatsApp</td>
+      <td class="status-yellow">Médio — mostra operação dentro das regras</td>
+    </tr>
+    <tr>
+      <td>Registro de processamento de unsubscribes</td>
+      <td class="status-yellow">Médio — demonstra respeito ao opt-out</td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>Prevenção vale mais que recuperação</strong>
+    Seguir este guia integralmente elimina em ~95% dos casos a necessidade de passar por este processo. O appeal existe, funciona em parte dos casos — mas o custo de um ban (tempo, receita perdida, estresse) supera em muito o esforço de fazer compliance desde o início.
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">22</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 23 — CHECKLIST + CONCLUSÃO        -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <div class="section-label">Seção 07</div>
+  <h1>Checklist de Compliance</h1>
+  <p>Use esta lista semanalmente. Se qualquer item estiver faltando, priorize antes de escalar.</p>
+
+  <h3 style="color: #0F6E56; margin-bottom: 12px;">Opt-in e Lista</h3>
+  <div class="check-item"><div class="check-box"></div><span>Toda lista tem opt-in explícito documentado (data, fonte, IP)</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Política de Privacidade acessível e atualizada</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Pedidos de SAIR processados em menos de 24h</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Contatos inativos há 6+ meses reconfirmados ou removidos</span></div>
+
+  <h3 style="color: #0F6E56; margin: 16px 0 12px;">Templates e Mensagens</h3>
+  <div class="check-item"><div class="check-box"></div><span>Templates de marketing aprovados pelo WhatsApp</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Unsubscribe presente em toda mensagem de marketing</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Mínimo de 5 variações por campanha de alto volume</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Sem links encurtados não verificados</span></div>
+
+  <h3 style="color: #0F6E56; margin: 16px 0 12px;">Envio e Escala</h3>
+  <div class="check-item"><div class="check-box"></div><span>Volume diário dentro do limite do estágio da conta</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Envios em lotes com intervalos entre eles</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Horário de envio entre 08h e 21h</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Rate de rejeição monitorado em tempo real</span></div>
+
+  <h3 style="color: #0F6E56; margin: 16px 0 12px;">Monitoramento</h3>
+  <div class="check-item"><div class="check-box"></div><span>Quality Rating verificado no Business Manager (semanal)</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Taxa de rejeição abaixo de 2%</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Zero user reports nos últimos 30 dias</span></div>
+  <div class="check-item"><div class="check-box"></div><span>Evidências de opt-in salvas e acessíveis para appeal</span></div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">23</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PÁGINA 24 — CONCLUSÃO                    -->
+<!-- ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="page-header">
+    <div class="page-header-logo">
+      <svg width="20" height="20" viewBox="0 0 256 256">
+        <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+        <polyline points="80,84 124,128 80,172" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="134" y="158" width="56" height="20" rx="10" fill="#fff"/>
+      </svg>
+      Prompt Labs
+    </div>
+    <div class="page-header-title">Compliance WhatsApp + IA</div>
+  </div>
+
+  <div class="section-label">Conclusão</div>
+  <h1>Compliance = Escalabilidade Sustentável</h1>
+
+  <div class="intro-box">
+    <h3>O que você implementou com este guia</h3>
+    <p>Opt-in documentado que protege legalmente. Templates aprovados que escalam sem risco. Métricas monitoradas que previnem bans. IA gerando variações que parecem humanas. E um processo de recovery caso algo dê errado.</p>
+  </div>
+
+  <h2>Os 4 resultados que você vai ver</h2>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <strong>Zero risco de ban</strong>
+      <p>Seguindo o checklist semanalmente, sua probabilidade de suspensão cai para próxima de zero. Os algoritmos do WhatsApp favorecem contas que se comportam como operações legítimas.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <strong>Crescimento previsível</strong>
+      <p>Com o warm-up correto e rate limiting estratégico, você pode escalar 30–40% por semana de forma segura e sustentável.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <strong>Dados confiáveis</strong>
+      <p>Uma lista com opt-in real e gerenciada tem taxa de resposta 3–5x maior do que lista comprada. Menos volume, mais resultado.</p>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <strong>ROI máximo por contato</strong>
+      <p>Contatos que deram opt-in explícito e recebem mensagens relevantes convertem em média 4x mais do que listas frias.</p>
+    </div>
+  </div>
+
+  <h2>Próximos Passos Recomendados</h2>
+  <ol style="margin-left: 20px; font-size: 13.5px; line-height: 2;">
+    <li>Audite sua lista atual — remova quem não tem opt-in documentado</li>
+    <li>Crie pelo menos 3 templates e submeta para aprovação esta semana</li>
+    <li>Configure o monitoramento semanal de métricas</li>
+    <li>Gere variações de mensagem com IA para sua próxima campanha</li>
+    <li>Implemente o processo de unsubscribe automático</li>
+  </ol>
+
+  <div class="callout" style="margin-top: 24px;">
+    <strong>Dúvidas ou precisa de ajuda?</strong>
+    jonasaaugusto.github.io/promptlabs — Novos guias, atualizações e materiais complementares são publicados regularmente.
+  </div>
+
+  <div style="text-align: center; margin-top: 32px;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 256 256">
+      <rect x="0" y="0" width="256" height="256" rx="52" fill="#0F6E56"/>
+      <polyline points="80,84 124,128 80,172" fill="none" stroke="#ffffff" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="134" y="158" width="56" height="20" rx="10" fill="#ffffff"/>
+    </svg>
+    <p style="margin-top: 12px; font-size: 13px; color: #888;">© 2026 Prompt Labs by Jonas Augusto &nbsp;·&nbsp; v1.0</p>
+  </div>
+
+  <div class="page-footer">
+    <span>© 2026 Prompt Labs by Jonas Augusto</span>
+    <span class="page-num">24</span>
+  </div>
+</div>
+
+</body>
+</html>
