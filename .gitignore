@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.tmp
+*.swp
+*.bak
+
+# Node
+node_modules/
+package-lock.json
+
+# Sensitive
+.env
+secrets.txt
+
+# Archives
+*.zip
+*.rar
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+
+# Ignore heavy files
+templates/pdf/*.pdf
+templates/images/*.png
+products/*.pdf
