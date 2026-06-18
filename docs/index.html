@@ -10,14 +10,6 @@
 </head>
 <body>
 
-    <div id="lang-selector">
-        <button id="lang-toggle">🌐 Idiomas</button>
-        <div id="lang-dropdown" class="hidden">
-            <button class="lang-option" data-lang="pt">Português 🇧🇷</button>
-            <button class="lang-option" data-lang="en">English 🇺🇸</button>
-        </div>
-    </div>
-
     <header>
         <div class="container">
             <div class="logo">
@@ -31,8 +23,12 @@
             <nav>
                 <a href="#produtos" data-i18n="nav_produtos">Produtos</a>
                 <a href="#sobre" data-i18n="nav_sobre">Sobre</a>
-                <a href="https://gumroad.com/promptlabs" data-link-gumroad data-i18n="nav_comprar" target="_blank">Comprar</a>
+                <a href="https://jonasaugusto.gumroad.com/" data-link-gumroad data-i18n="nav_comprar" target="_blank">Comprar</a>
             </nav>
+            <select id="lang-select" aria-label="Idioma">
+                <option value="pt">🇧🇷 PT</option>
+                <option value="en">🇺🇸 EN</option>
+            </select>
         </div>
     </header>
 
@@ -41,7 +37,7 @@
             <div class="container">
                 <h1 data-i18n="hero_title">Engenharia de Prompts & Otimização de IA</h1>
                 <p data-i18n="hero_subtitle">Guias práticos, diretos e de alta qualidade para dominar técnicas avançadas de IA</p>
-                <a href="https://gumroad.com/promptlabs" class="btn" data-link-gumroad data-i18n="hero_btn" target="_blank">Explorar Produtos</a>
+                <a href="https://jonasaugusto.gumroad.com/" class="btn" data-link-gumroad data-i18n="hero_btn" target="_blank">Explorar Produtos</a>
             </div>
         </section>
 
@@ -57,12 +53,11 @@
                         <span class="price">R$ 67</span>
                         <a href="https://5586755380535.gumroad.com/l/whivdp" class="btn" data-i18n="product_1_btn" target="_blank">Saiba Mais</a>
                     </div>
-                    <div class="product-card">
-                        <span class="badge" data-i18n="product_2_label">Professional</span>
-                        <h3 data-i18n="product_2_title">IA para Lead Generation</h3>
-                        <p data-i18n="product_2_desc">Use Claude/ChatGPT para prospectar, enriquecer dados de leads e criar pitch personalizado.</p>
-                        <span class="price">R$ 49-79</span>
-                        <a href="https://gumroad.com/promptlabs" class="btn-secondary" data-link-gumroad data-i18n="product_2_btn" target="_blank">Saiba Mais</a>
+                    <div class="product-card product-soon">
+                        <span class="badge" data-i18n="product_2_label">Foundations</span>
+                        <h3 data-i18n="product_2_title">Engenharia de Prompts</h3>
+                        <p data-i18n="product_2_desc">Técnicas avançadas de prompt engineering para maximizar resultados com modelos de linguagem modernos.</p>
+                        <span class="coming-soon" data-i18n="product_2_soon">Em Breve</span>
                     </div>
                 </div>
             </div>
@@ -81,7 +76,7 @@
         <div class="container">
             <p data-i18n="footer_copyright">© 2026 Prompt Labs by Jonas Augusto</p>
             <div class="links">
-                <a href="https://gumroad.com/promptlabs" data-link-gumroad target="_blank">Gumroad</a>
+                <a href="https://jonasaugusto.gumroad.com/" data-link-gumroad target="_blank">Gumroad</a>
                 <a href="https://github.com/jonasaaugusto/prompt-labs" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/jonasaaugusto" target="_blank">LinkedIn</a>
             </div>

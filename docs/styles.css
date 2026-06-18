@@ -149,6 +149,23 @@ nav a:hover {
     margin-bottom: 12px;
 }
 
+.coming-soon {
+    display: inline-block;
+    background: #EBEBEA;
+    color: #888;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.product-soon {
+    opacity: 0.65;
+    pointer-events: none;
+}
+
 .badge.new {
     background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
     animation: pulse 2s infinite;
@@ -204,75 +221,26 @@ footer a:hover {
     color: #ffffff;
 }
 
-/* Language Selector */
-#lang-selector {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
+/* Language Select */
+#lang-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 1px solid #D3D1C7;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #2C2C2A;
+    cursor: pointer;
     font-family: inherit;
+    transition: border-color 0.2s;
 }
 
-#lang-toggle {
-    background: #1a3a3a;
-    color: white;
-    border: 1px solid #2d5f5f;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-#lang-toggle:hover {
-    background: #2d5f5f;
-    border-color: #4a8f8f;
-}
-
-#lang-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    margin-top: 8px;
-    min-width: 160px;
-    overflow: hidden;
-    display: none;
-}
-
-#lang-dropdown.active {
-    display: block;
-}
-
-#lang-dropdown.hidden {
-    display: none;
-}
-
-.lang-option {
-    display: block;
-    width: 100%;
-    padding: 12px 16px;
-    border: none;
-    background: white;
-    cursor: pointer;
-    font-size: 14px;
-    text-align: left;
-    transition: background 0.15s ease;
-    color: #333;
-}
-
-.lang-option:hover {
-    background: #f5f5f5;
-}
-
-.lang-option.active {
-    background: #e8f5f5;
-    color: #1a3a3a;
-    font-weight: 500;
+#lang-select:hover,
+#lang-select:focus {
+    border-color: #0F6E56;
+    outline: none;
 }
 
 @media (max-width: 768px) {

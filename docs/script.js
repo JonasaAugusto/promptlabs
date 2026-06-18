@@ -25,10 +25,10 @@ const translations = {
         product_1_title:  'Compliance WhatsApp + IA',
         product_1_desc:   'Estratégia de compliance, otimização de opt-in, monitoramento de bans e LGPD compliance com IA.',
         product_1_btn:    'Saiba Mais',
-        product_2_label:  'Professional',
-        product_2_title:  'IA para Lead Generation',
-        product_2_desc:   'Use Claude/ChatGPT para prospectar, enriquecer dados de leads e criar pitch personalizado.',
-        product_2_btn:    'Saiba Mais',
+        product_2_label:  'Foundations',
+        product_2_title:  'Engenharia de Prompts',
+        product_2_desc:   'Técnicas avançadas de prompt engineering para maximizar resultados com modelos de linguagem modernos.',
+        product_2_soon:   'Em Breve',
         section_sobre:    'Sobre Prompt Labs',
         about_text:       'Democratizamos técnicas avançadas de IA. Soluções práticas, diretas e de alta qualidade — sem jargão desnecessário — para profissionais que querem dominar IA.',
         about_by:         'Criado por:',
@@ -47,10 +47,10 @@ const translations = {
         product_1_title:  'WhatsApp Compliance + AI',
         product_1_desc:   'Compliance strategy, opt-in optimization, ban monitoring and LGPD compliance with AI.',
         product_1_btn:    'Learn More',
-        product_2_label:  'Professional',
-        product_2_title:  'AI for Lead Generation',
-        product_2_desc:   'Use Claude/ChatGPT to prospect, enrich lead data and create personalized pitches.',
-        product_2_btn:    'Learn More',
+        product_2_label:  'Foundations',
+        product_2_title:  'Prompt Engineering',
+        product_2_desc:   'Advanced prompt engineering techniques to maximize results with modern language models.',
+        product_2_soon:   'Coming Soon',
         section_sobre:    'About Prompt Labs',
         about_text:       'We democratize advanced AI techniques. Practical, direct and high-quality solutions — without unnecessary jargon — for professionals who want to master AI.',
         about_by:         'Created by:',
@@ -59,8 +59,8 @@ const translations = {
 };
 
 const urlMap = {
-    pt: { gumroad: 'https://gumroad.com/promptlabs' },
-    en: { gumroad: 'https://gumroad.com/promptlabs' },
+    pt: { gumroad: 'https://jonasaugusto.gumroad.com/' },
+    en: { gumroad: 'https://jonasaugusto.gumroad.com/' },
 };
 
 function getDefaultLanguage() {
@@ -86,35 +86,10 @@ function changeLanguage(lang) {
 
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
 
-    document.querySelectorAll('.lang-option').forEach(opt => {
-        opt.classList.toggle('active', opt.dataset.lang === lang);
-    });
-
-    closeDropdown();
+    document.getElementById('lang-select').value = lang;
 }
 
-function toggleDropdown() {
-    const dd = document.getElementById('lang-dropdown');
-    dd.classList.toggle('hidden');
-    dd.classList.toggle('active');
-}
-
-function closeDropdown() {
-    const dd = document.getElementById('lang-dropdown');
-    dd.classList.add('hidden');
-    dd.classList.remove('active');
-}
-
-document.getElementById('lang-toggle').addEventListener('click', toggleDropdown);
-
-document.querySelectorAll('.lang-option').forEach(opt => {
-    opt.addEventListener('click', () => changeLanguage(opt.dataset.lang));
-});
-
-document.addEventListener('click', e => {
-    if (!document.getElementById('lang-selector').contains(e.target)) {
-        closeDropdown();
-    }
-});
+const langSelect = document.getElementById('lang-select');
+langSelect.addEventListener('change', () => changeLanguage(langSelect.value));
 
 changeLanguage(getDefaultLanguage());
