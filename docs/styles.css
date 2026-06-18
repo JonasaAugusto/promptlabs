@@ -221,26 +221,42 @@ footer a:hover {
     color: #ffffff;
 }
 
-/* Language Select */
-#lang-select {
-    appearance: none;
-    -webkit-appearance: none;
-    background: transparent;
+/* Language Toggle */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    background: #F1EFE8;
     border: 1px solid #D3D1C7;
-    border-radius: 6px;
-    padding: 5px 10px;
-    font-size: 13px;
-    font-weight: 500;
-    color: #2C2C2A;
-    cursor: pointer;
-    font-family: inherit;
-    transition: border-color 0.2s;
+    border-radius: 100px;
+    padding: 3px;
+    gap: 2px;
+    flex-shrink: 0;
 }
 
-#lang-select:hover,
-#lang-select:focus {
-    border-color: #0F6E56;
-    outline: none;
+.lang-btn {
+    background: transparent;
+    border: none;
+    border-radius: 100px;
+    padding: 5px 11px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    font-family: inherit;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.lang-btn[aria-pressed="true"] {
+    background: #0F6E56;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(15, 110, 86, 0.25);
+}
+
+.lang-btn:hover:not([aria-pressed="true"]) {
+    color: #0F6E56;
+    background: rgba(15, 110, 86, 0.08);
 }
 
 @media (max-width: 768px) {

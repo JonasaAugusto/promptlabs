@@ -86,10 +86,13 @@ function changeLanguage(lang) {
 
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
 
-    document.getElementById('lang-select').value = lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.setAttribute('aria-pressed', String(btn.dataset.langBtn === lang));
+    });
 }
 
-const langSelect = document.getElementById('lang-select');
-langSelect.addEventListener('change', () => changeLanguage(langSelect.value));
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => changeLanguage(btn.dataset.langBtn));
+});
 
 changeLanguage(getDefaultLanguage());
