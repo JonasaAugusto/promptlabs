@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <div id="lang-selector">
+        <button id="lang-toggle">🌐 Idiomas</button>
+        <div id="lang-dropdown" class="hidden">
+            <button class="lang-option" data-lang="pt">Português 🇧🇷</button>
+            <button class="lang-option" data-lang="en">English 🇺🇸</button>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="logo">
@@ -20,9 +29,9 @@
                 <span>Prompt Labs</span>
             </div>
             <nav>
-                <a href="#produtos">Produtos</a>
-                <a href="#sobre">Sobre</a>
-                <a href="https://gumroad.com/promptlabs" target="_blank">Comprar</a>
+                <a href="#produtos" data-i18n="nav_produtos">Produtos</a>
+                <a href="#sobre" data-i18n="nav_sobre">Sobre</a>
+                <a href="https://gumroad.com/promptlabs" data-link-gumroad data-i18n="nav_comprar" target="_blank">Comprar</a>
             </nav>
         </div>
     </header>
@@ -30,30 +39,30 @@
     <main>
         <section class="hero">
             <div class="container">
-                <h1>Engenharia de Prompts & Otimização de IA</h1>
-                <p>Guias práticos, diretos e de alta qualidade para dominar técnicas avançadas de IA</p>
-                <a href="https://gumroad.com/promptlabs" class="btn" target="_blank">Explorar Produtos</a>
+                <h1 data-i18n="hero_title">Engenharia de Prompts & Otimização de IA</h1>
+                <p data-i18n="hero_subtitle">Guias práticos, diretos e de alta qualidade para dominar técnicas avançadas de IA</p>
+                <a href="https://gumroad.com/promptlabs" class="btn" data-link-gumroad data-i18n="hero_btn" target="_blank">Explorar Produtos</a>
             </div>
         </section>
 
         <section id="produtos" class="produtos">
             <div class="container">
-                <h2>Produtos</h2>
+                <h2 data-i18n="section_produtos">Produtos</h2>
                 <div class="grid">
                     <div class="product-card" id="product-compliance">
-                        <span class="badge">Professional</span>
-                        <span class="badge new">🆕 Novo</span>
-                        <h3 data-en="WhatsApp Compliance + AI" data-pt="Compliance WhatsApp + IA">Compliance WhatsApp + IA</h3>
-                        <p data-en="Compliance strategy, opt-in optimization, ban monitoring and LGPD compliance with AI." data-pt="Estratégia de compliance, otimização de opt-in, monitoramento de bans e LGPD compliance com IA.">Estratégia de compliance, otimização de opt-in, monitoramento de bans e LGPD compliance com IA.</p>
+                        <span class="badge" data-i18n="product_1_label">Professional</span>
+                        <span class="badge new" data-i18n="product_1_new">🆕 Novo</span>
+                        <h3 data-i18n="product_1_title">Compliance WhatsApp + IA</h3>
+                        <p data-i18n="product_1_desc">Estratégia de compliance, otimização de opt-in, monitoramento de bans e LGPD compliance com IA.</p>
                         <span class="price">R$ 67</span>
-                        <a href="https://5586755380535.gumroad.com/l/whivdp" class="btn" data-en="Learn More" data-pt="Saiba Mais" target="_blank">Saiba Mais</a>
+                        <a href="https://5586755380535.gumroad.com/l/whivdp" class="btn" data-i18n="product_1_btn" target="_blank">Saiba Mais</a>
                     </div>
                     <div class="product-card">
-                        <span class="badge">Professional</span>
-                        <h3>IA para Lead Generation</h3>
-                        <p>Use Claude/ChatGPT para prospectar, enriquecer dados de leads e criar pitch personalizado.</p>
+                        <span class="badge" data-i18n="product_2_label">Professional</span>
+                        <h3 data-i18n="product_2_title">IA para Lead Generation</h3>
+                        <p data-i18n="product_2_desc">Use Claude/ChatGPT para prospectar, enriquecer dados de leads e criar pitch personalizado.</p>
                         <span class="price">R$ 49-79</span>
-                        <a href="https://gumroad.com/promptlabs" class="btn-secondary" target="_blank">Saiba Mais</a>
+                        <a href="https://gumroad.com/promptlabs" class="btn-secondary" data-link-gumroad data-i18n="product_2_btn" target="_blank">Saiba Mais</a>
                     </div>
                 </div>
             </div>
@@ -61,18 +70,18 @@
 
         <section id="sobre" class="sobre">
             <div class="container">
-                <h2>Sobre Prompt Labs</h2>
-                <p>Democratizamos técnicas avançadas de IA. Soluções práticas, diretas e de alta qualidade — sem jargão desnecessário — para profissionais que querem dominar IA.</p>
-                <p><strong>Criado por:</strong> Jonas Augusto</p>
+                <h2 data-i18n="section_sobre">Sobre Prompt Labs</h2>
+                <p data-i18n="about_text">Democratizamos técnicas avançadas de IA. Soluções práticas, diretas e de alta qualidade — sem jargão desnecessário — para profissionais que querem dominar IA.</p>
+                <p><strong data-i18n="about_by">Criado por:</strong> Jonas Augusto</p>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>© 2026 Prompt Labs by Jonas Augusto</p>
+            <p data-i18n="footer_copyright">© 2026 Prompt Labs by Jonas Augusto</p>
             <div class="links">
-                <a href="https://gumroad.com/promptlabs" target="_blank">Gumroad</a>
+                <a href="https://gumroad.com/promptlabs" data-link-gumroad target="_blank">Gumroad</a>
                 <a href="https://github.com/jonasaaugusto/prompt-labs" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/jonasaaugusto" target="_blank">LinkedIn</a>
             </div>
