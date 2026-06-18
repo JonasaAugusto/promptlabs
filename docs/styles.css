@@ -21,6 +21,7 @@ header {
     background: #ffffff;
     border-bottom: 1px solid #D3D1C7;
     padding: 20px 0;
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -51,6 +52,9 @@ nav a {
     text-decoration: none;
     transition: color 0.2s;
     font-weight: 500;
+    padding: 4px 0;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 nav a:hover {
@@ -86,6 +90,8 @@ nav a:hover {
     border: none;
     cursor: pointer;
     font-size: 16px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .btn {
@@ -237,7 +243,8 @@ footer a:hover {
     background: transparent;
     border: none;
     border-radius: 100px;
-    padding: 5px 11px;
+    padding: 10px 14px;
+    min-height: 36px;
     font-size: 12px;
     font-weight: 600;
     color: #888;
@@ -246,6 +253,8 @@ footer a:hover {
     font-family: inherit;
     white-space: nowrap;
     line-height: 1;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .lang-btn[aria-pressed="true"] {
@@ -259,17 +268,59 @@ footer a:hover {
     background: rgba(15, 110, 86, 0.08);
 }
 
+/* ── Tablet ≤1024px ── */
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 40px; }
+    .produtos h2, .sobre h2 { font-size: 30px; }
+}
+
+/* ── Phone ≤768px ── */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    header .container {
-        flex-direction: column;
-        gap: 16px;
-    }
-
+    header { padding: 14px 0; }
+    header .container { flex-wrap: wrap; gap: 8px 0; }
+    .logo { flex: 1; }
+    .lang-toggle { order: 2; }
     nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #EEECEA;
+    }
+    nav a { font-size: 14px; }
+
+    .hero { padding: 60px 20px; }
+    .hero h1 { font-size: 30px; }
+    .hero p { font-size: 16px; }
+
+    .produtos, .sobre { padding: 56px 16px; }
+    .produtos h2, .sobre h2 { font-size: 26px; margin-bottom: 28px; }
+
+    .grid { grid-template-columns: 1fr; }
+
+    footer .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
         gap: 16px;
     }
+}
+
+/* ── Smartphones ≤480px (iPhone 15 390px, Pixel 6 412px) ── */
+@media (max-width: 480px) {
+    .hero h1 { font-size: 26px; }
+    .hero p { font-size: 15px; margin-bottom: 24px; }
+    .btn, .btn-secondary { padding: 13px 24px; font-size: 15px; }
+    .product-card { padding: 22px 18px; }
+    .price { font-size: 22px; }
+}
+
+/* ── Pequenos ≤375px (iPhone SE, Galaxy A32) ── */
+@media (max-width: 375px) {
+    nav { gap: 14px; }
+    nav a { font-size: 13px; }
+    .hero { padding: 48px 16px; }
+    .hero h1 { font-size: 22px; }
+    .lang-btn { padding: 10px 10px; font-size: 11px; }
 }
